@@ -40,42 +40,42 @@ These phenotypes are contained in the file __selected_general_phenotypes-v0.1.tx
 
 As an exploratory phase, we will focus in the following phenotypes:
 
--Depression (quantitative trait)
--Endometrial cancer
--Lymphoma
--Response to antidepressant treatment (citalopram)
--Response to tamoxifen in breast cancer 
--Breast cancer
--Breast Cancer in BRCA1 mutation carriers
--Response to mTOR inhibitor (rapamycin) 
--Multiple sclerosis 
--Ovarian cancer 
--Hypertension
--Lung cancer
--Autism
--Tuberculosis 
--Alzheimer's disease
--Major depressive disorder
--Epilepsy (generalized)
--Warfarin maintenance dose
--Response to hepatitis C treatment
--Rheumatoid arthritis
--Tuberculosis
--Diabetes
+- Depression (quantitative trait)
+- Endometrial cancer
+- Lymphoma
+- Response to antidepressant treatment (citalopram)
+- Response to tamoxifen in breast cancer 
+- Breast cancer
+- Breast Cancer in BRCA1 mutation carriers
+- Response to mTOR inhibitor (rapamycin) 
+- Multiple sclerosis 
+- Ovarian cancer 
+- Hypertension
+- Lung cancer
+- Autism
+- Tuberculosis 
+- Alzheimer's disease
+- Major depressive disorder
+- Epilepsy (generalized)
+- Warfarin maintenance dose
+- Response to hepatitis C treatment
+- Rheumatoid arthritis
+- Tuberculosis
+- Diabetes
 These phenotypes are contained in the file __selected_phenotypes.txt__
 
 
 Get the following fields for the previous phenotypes:
 
--PUBMEDID
--LINK
--STUDY
--DISEASE/TRAIT
--INITIAL SAMPLE DESCRIPTION
--REPLICATION SAMPLE DESCRIPTION
--SNPS
--RISK ALLELE FREQUENCY
--P-VALUE OR or BETA
+- PUBMEDID
+- LINK
+- STUDY
+- DISEASE/TRAIT
+- INITIAL SAMPLE DESCRIPTION
+- REPLICATION SAMPLE DESCRIPTION
+- SNPS
+- RISK ALLELE FREQUENCY
+- P-VALUE OR or BETA
 
 ```
 ./get_phenotype_data-v0.1.sh > phenotypes_to_study.txt
