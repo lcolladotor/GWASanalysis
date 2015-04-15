@@ -1,0 +1,200 @@
+10 Epilepsy (generalized)
+10 Hepatocellular carcinoma
+10 Leprosy
+10 Neuroblastoma
+10 Osteoarthritis
+10 Psychosis (atypical)
+10 Renal cell carcinoma
+10 Renal function-related traits (eGRFcrea)
+10 Response to antidepressants
+10 Response to antipsychotic treatment in schizophrenia (reasoning)
+10 Response to cytidine analogues (gemcitabine)
+10 Response to fenofibrate
+10 Response to inhaled corticosteroid treatment in asthma (percentage change of FEV1)
+10 Response to radiotherapy in cancer (late toxicity)
+10 Systolic blood pressure in sickle cell anemia
+119 Blood pressure
+11 Chronic hepatitis B infection
+11 Response to antipsychotic treatment in schizophrenia (working memory)
+11 Response to anti-retroviral therapy (ddI/d4T) in HIV-1 infection (Grade 1 peripheral neuropathy)
+11 Type 1 diabetes nephropathy
+122 Bipolar disorder and schizophrenia
+122 Inflammatory bowel disease
+12 Adverse response to chemotherapy (neutropenia/leucopenia) (all antimicrotubule drugs)
+12 Adverse response to lamotrigine and phenytoin
+12 Alzheimer's disease (age of onset)
+12 Immunoglobulin A
+12 Multiple sclerosis (OCB status)
+12 Multiple sclerosis (severity)
+12 Schizophrenia or bipolar disorder
+133 Bipolar disorder
+13 Depression (quantitative trait)
+13 Endometrial cancer
+13 Lung adenocarcinoma
+13 Lymphoma
+13 Malaria
+13 Paget's disease
+13 Response to anti-retroviral therapy (ddI/d4T) in HIV-1 infection (Grade 2 peripheral neuropathy)
+13 Response to taxane treatment (placlitaxel)
+13 Warfarin maintenance dose
+142 Cholesterol, total
+147 Prostate cancer
+14 Esophageal cancer
+151 Ulcerative colitis
+153 Coronary heart disease
+159 Schizophrenia
+15 Age-related nuclear cataracts
+15 Celiac disease and Rheumatoid arthritis
+15 Insulin resistance/response
+15 Platelet aggregation
+15 Response to serotonin reuptake inhibitors in major depressive disorder (plasma drug and metabolite levels)
+160 Triglycerides
+168 LDL cholesterol
+16 Response to anti-retroviral therapy (ddI/d4T) in HIV-1 infection (Grade 3 peripheral neuropathy)
+16 Response to taxane treatment (docetaxel)
+171 Breast cancer
+179 Amyotrophic lateral sclerosis (sporadic)
+17 Nasopharyngeal carcinoma
+17 Obesity (extreme)
+182 Body mass index
+182 Multiple sclerosis
+18 Basal cell carcinoma 
+18 Behcet's disease
+18 Breast cancer (early onset)
+18 Panic disorder
+19 Cardiac hypertrophy
+19 Cervical cancer
+19 Kawasaki disease
+19 Preeclampsia
+19 Response to hepatitis C treatment
+1 Acute myeloid leukemia
+1 Amygdala reactivity
+1 Anxiety
+1 Autism spectrum disorders (language delay)
+1 Breast cancer (estrogen-receptor negative)
+1 Breast cancer in BRCA2 mutation carriers
+1 Chronic fatigue syndrome
+1 Epilepsy
+1 CYP3A4 enzyme activity
+1 Lupus
+1 Neuroblastoma (high-risk)
+1 Response to antiplatelet therapy
+1 Response to cerivastatin
+1 Response to clopidogrel therapy
+1 Response to diuretic therapy
+1 Response to diuretic therapy in hypertension
+1 Response to iloperidone treatment (PANSS-T score)
+1 Response to metformin
+1 Response to metformin in type 2 diabetes (glycemic)
+1 Response to platinum-based chemotherapy in small cell and non-small cell lung cancers
+1 Response to platinum-based chemotherapy in small-cell lung cancer
+1 Response to radiotherapy in prostate cancer (toxicity)
+1 Response to rate control therapy in atrial fibrillation 
+1 Response to tamoxifen in breast cancer
+1 Response to temozolomide
+1 Response to ximelagatran treatment
+20 Hypothyroidism
+21 Autism
+220 Crohn's disease
+22 Hodgkin's lymphoma
+23 Coronary artery disease
+23 Migraine with aura
+24 Response to antidepressant treatment
+24 Response to citalopram treatment
+26 Asthma (childhood onset)
+27 Melanoma
+29 Endometriosis
+29 Ovarian cancer
+2 Response to dabigatran etexilate treatment
+2 Response to haloperidol in psychosis
+2 Response to irinotecan in non-small-cell lung cancer
+2 Response to lithium treatment in bipolar disorder
+2 Response to methotrexate in rheumatoid arthritis
+2 Response to platinum-based chemotherapy in head and neck cancers
+31 Telomere length
+322 Rheumatoid arthritis
+32 Migraine without aura
+33 Weight
+32 Testicular germ cell tumor
+35 Hypertension
+36 Lung cancer
+38 Breast size
+3 Adverse response to chemotherapy in breast cancer (alopecia)
+3 Adverse response to chemotherapy in breast cancer (alopecia) (cyclophosphamide+epirubicin+/-5FU)
+3 Adverse response to chemotherapy (neutropenia/leucopenia) (camptothecin)
+3 Adverse response to chemotherapy (neutropenia/leucopenia) (cyclophosphamide)
+3 Adverse response to chemotherapy (neutropenia/leucopenia) (doxorubicin)
+3 Adverse response to radiation therapy
+3 Breast cancer (male) 
+3 Breast cancer (menopausal hormone therapy interaction)
+3 Breast cancer (survival)
+3 Diabetes (gestational)
+3 IgM levels
+3 Insomnia
+3 Longevity (90 years and older)
+3 Response to antidepressant treatment (citalopram)
+3 Response to cholinesterase inhibitors in Alzheimer's disease
+3 Response to protease inhibitor treatment in hepatitis c (bilirubin toxicity)
+3 Testicular cancer
+3 Vitamin D insufficiency
+3 Vitamin E levels
+41 Pancreatic cancer
+44 Acute lymphoblastic leukemia (childhood)
+44 Alzheimer's disease (cognitive decline)
+44 Longevity
+44 Tuberculosis
+45 Metabolic syndrome
+4 Response to anti-TNF alpha therapy in inflammatory bowel disease
+4 Response to interferon beta therapy
+4 Response to platinum-based agents
+4 Response to protease inhibitor treatment in hepatitis c (peak serum total bilirubin levels)
+51 Bipolar disorder (body mass index interaction)
+51 Prostate cancer (gene x gene interaction)
+522 Height
+57 Response to antipsychotic treatment
+5 Adverse response to chemotherapy in breast cancer (alopecia) (paclitaxel)
+5 Adverse response to chemotherapy (neutropenia/leucopenia) (epirubicin)
+5 Adverse response to chemotherapy (neutropenia/leucopenia) (gemcitabine)
+5 Asperger disorder
+5 Glaucoma
+5 Hepatitis B vaccine response
+5 Hepatitis C induced liver cirrhosis
+5 Response to acetaminophen (hepatotoxicity)
+5 Response to angiotensin II receptor blocker therapy (opposite direction w/ diuretic therapy)
+5 Response to gemcitabine in pancreatic cancer
+5 Response to mTOR inhibitor (rapamycin)
+5 Schizophrenia, bipolar disorder and depression (combined)
+5 Vitamin D levels
+6 Adverse response to chemotherapy (neutropenia/leucopenia) (all anthracycline-based drugs)
+6 Adverse response to chemotherapy (neutropenia/leucopenia) (all antimetabolite drugs)
+6 Adverse response to chemotherapy (neutropenia/leucopenia) (all platinum-based drugs)
+6 Adverse response to chemotherapy (neutropenia/leucopenia) (all topoisomerase inhibitors)
+6 Breast Cancer in BRCA1 mutation carriers
+6 Breast cancer (prognosis)
+6 Immune reponse to smallpox (secreted IL-10)
+6 Immune reponse to smallpox (secreted TNF-alpha)
+6 Response to anti-TNF treatment in rheumatoid arthritis
+6 Response to iloperidone treatment (QT prolongation)
+6 Response to platinum-based chemotherapy in non-small-cell lung cancer
+73 Celiac disease
+74 Autism spectrum disorder, attention deficit-hyperactivity disorder, bipolar disorder, major depressive disorder, and schizophrenia (combined)
+75 Phospholipid levels (plasma)
+75 Urate levels
+76 Migraine
+78 Attention deficit hyperactivity disorder
+78 Myopia (pathological)
+7 Adverse response to chemotherapy in breast cancer (alopecia) (anti-microtubule)
+7 Adverse response to chemotherapy (neutropenia/leucopenia) (cisplatin)
+7 Adverse response to chemotherapy (neutropenia/leucopenia) (docetaxel)
+7 Adverse response to chemotherapy (neutropenia/leucopenia) (paclitaxel + carboplatin)
+7 Adverse response to chemotherapy in breast cancer (alopecia) (anti-microtubule)
+7 Adverse response to chemotherapy (neutropenia/leucopenia) (cisplatin)
+7 Adverse response to chemotherapy (neutropenia/leucopenia) (docetaxel)
+7 Adverse response to chemotherapy (neutropenia/leucopenia) (paclitaxel + carboplatin)
+7 AIDS
+7 Response to irinotecan and platinum-based chemotherapy in non-small-cell lung cancer
+7 Response to methylphenidate treatment in attention-deficit/hyperactivity disorder (blood pressure)
+84 Major depressive disorder
+88 Alzheimer's disease
+89 Platelet counts
+89 Response to amphetamines
