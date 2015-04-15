@@ -1,4 +1,4 @@
-file='selected_phenotypes-v0.1.txt'
+file='selected_phenotypes.txt'
 columns='cut -f2,6,7,8,9,10,22,27,28,31'
 
 head -n1 full | $columns
