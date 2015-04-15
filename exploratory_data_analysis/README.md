@@ -78,7 +78,7 @@ Get the following fields for the previous phenotypes:
 - P-VALUE OR or BETA
 
 ```
-./get_phenotype_data-v0.1.sh > phenotypes_to_study.txt
+./get_phenotype_data.sh > phenotypes_to_study.txt
 ```
 
 Look for associations with reported odd ratio and case and control sample description:
