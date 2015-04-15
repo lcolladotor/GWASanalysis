@@ -34,7 +34,7 @@ The phenotypes must be:
 - Clinically relevant
 - Relatively easy to measure or determine (no anthropological measures)
 - Well represented by a considerable number of studies in the catalog
-These phenotypes are contained in the file __selected_general_phenotypes-v0.1.txt__
+These phenotypes are contained in the file __selected_general_phenotypes.txt__
 
 
 
