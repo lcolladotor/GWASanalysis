@@ -193,11 +193,21 @@ rs2290203
 |               |     33670     |      61179    |
 
 
-```
+``` R
+> b = 30834
+> d = 30345
+> total = 33670
+> OR = 1.08
+> a = b*total/((d/OR) + b)
+> c = total - a
+> Sensitivity = a/(a+c)
+> Specificity = d/(b+d)
 > Sensitivity
 [1] 0.5232201
 > Specificity
 [1] 0.4960035
+> (a*d) / (b*c)
+[1] 1.08
 ```
 
 
