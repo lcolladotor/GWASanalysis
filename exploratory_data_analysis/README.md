@@ -2,8 +2,18 @@
 
 Download GWAS catalog
 
-```
-wget https://www.ebi.ac.uk/gwas/api/search/downloads/full
+```shell
+ wget https://www.ebi.ac.uk/gwas/api/search/downloads/full
+--2015-04-27 18:29:54--  https://www.ebi.ac.uk/gwas/api/search/downloads/full
+Resolving www.ebi.ac.uk (www.ebi.ac.uk)... 193.62.192.80
+Connecting to www.ebi.ac.uk (www.ebi.ac.uk)|193.62.192.80|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/tsv]
+Saving to: ‘full’
+
+    [                                                                            <=>                         ] 14 765 572  1016KB/s   in 16s    
+
+2015-04-27 18:30:10 (910 KB/s) - ‘full’ saved [14765572]
 ```
 
 
@@ -13,11 +23,11 @@ Get order of columns
 head -n1 full | sed 's/\t/\n/g' | cat -n > column_names
 ```
 
-There are 27986 genome-wide associations in the catalog
+There are 28827 genome-wide associations in the catalog
 
 ```
 sed 1d full | wc -l
-27986
+28827
 ```
 
 
@@ -25,7 +35,7 @@ There are 1266 phenotypes analyzed in the catalog reported as different
 
 ```
 cut -f8 full | sed 1d | sort -u | wc -l
-1266
+1288
 ```
 
 
@@ -100,6 +110,23 @@ Sometimes, there are associations reported more than once since the SNPs were ma
 
 
 That is why we just keep unique associations.
+
+After having the phenotypes to study, manual curation for each paper is performed for:
+- Population size of cases and controls
+- Risk allele frequency
+- Odd ratio
+- Determining whether the risk allele frequency belongs to case or control group.
+
+__LibreOffice Calc__ __Version: 4.2.7.2, Build ID: 420m0(Build:2)__ is used to curate the __phenotypes_to_study_w_required_data__ file.
+
+The following are columns added to this file in order to curate each study:
+- CASES: Sample size of population for cases
+- CONTROLS: Sample size of population for controls
+- RAF-CONTROLS: Logical vector to determine whether the reported RAF belongs to cases or controls. If __T__, RAF belongs to controls
+- STUDY PHASE: Phase of study considered in the catalog, (e.g. first, second, third, replication or combined phase)
+- CLINICAL VARIABLES: Some relevant clinical measures carried out in the study
+- NOTES: Style-free notes about the study (observations, important information, study design, etc..)
+
 
 ## Breast cancer
 
