@@ -36,8 +36,6 @@ N° Controls = `r controls`
 ```{r results='asis', echo = FALSE}
 file <- paste0("'", './images_evidence/', snp[,7], "_", snp[,1],".png", "'")
 cat("<img src=",file,"/>")
-file <- paste0("'", './images_evidence/', snp[,7], "_", snp[,1], "_2", ".png", "'")
-cat("<img src=",file,"/>")
 ```
 
 The RAF reported is the one predicted for cases, and not the actual RAF for cases.
