@@ -27,6 +27,7 @@ kable(snp, col.names = names(assoc[1,]))
 ```{r echo=FALSE}
 cases = 1082
 controls = 1239 + 1400
+#paste(snp[,7], snp[,1], sep = "_")
 
 ```
 
@@ -36,11 +37,11 @@ N° Controls = `r controls`
 
 ## Risk allele frequency
 <center>
-<img src="./images_evidence/`r paste(snp[,7], snp[,1], sep = "_")`.png"/>
+<img src="./images_evidence/rs727153_18823527.png"/>
 </center>
 
 <center>
-<img src="./images_evidence/`r paste(snp[,7], snp[,1], 2, sep = "_")`.png"/>
+<img src="./images_evidence/rs727153_18823527_2.png"/>
 </center>
 
 The RAF reported is the one predicted for cases, and not the actual RAF for cases.
