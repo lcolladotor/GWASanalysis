@@ -1,0 +1,4 @@
+18823527    http://europepmc.org/abstract/MED/18823527	A genome-wide association study for late-onset Alzheimer's disease using DNA pooling.	Alzheimer's disease	1,082 European ancestry cases, 1,239 European ancestry controls	1,400 controls	rs727153	0.52	0.000003	1.63
+> DNA samples were collected from __1,082 individuals with LOAD__ and __1,239 control subjects__. 
+> Age at onset ranged from 60 to 95 and Controls were matched for age (mean = 76.53 years, SD = 33), 
+> gender and ethnicity
