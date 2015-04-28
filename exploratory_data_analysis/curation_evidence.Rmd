@@ -4,15 +4,13 @@
 library('gdata')
 library('knitr')
 
-# Define functions
-"%p%"  <- function(x, y) paste0(x, y)
-
 setwd("/home/joseah/Documents/jeff_leek_lab/github/GWASanalysis/exploratory_data_analysis")
 
 assoc <- read.xls("phenotypes_to_study_w_required_data.xlsx", sheet = 1, header = TRUE)
 ```
 
 ---
+
 ```{r}
 snp <- assoc[1,]
 kable(snp, col.names = names(assoc[1,]))
@@ -27,8 +25,6 @@ kable(snp, col.names = names(assoc[1,]))
 ```{r echo=FALSE}
 cases = 1082
 controls = 1239 + 1400
-#paste(snp[,7], snp[,1], sep = "_")
-
 ```
 
 N° Cases = `r cases`
@@ -36,13 +32,13 @@ N° Cases = `r cases`
 N° Controls = `r controls`
 
 ## Risk allele frequency
-<center>
-<img src="./images_evidence/rs727153_18823527.png"/>
-</center>
 
-<center>
-<img src="./images_evidence/rs727153_18823527_2.png"/>
-</center>
+```{r echo =FALSE}
+file <- paste0("'", './images_evidence/', snp[,7], "_", snp[,1],".png", "'")
+cat("<img src=",file,"/>")
+file <- paste0("'", './images_evidence/', snp[,7], "_", snp[,1], "_2", ".png", "'")
+cat("<img src=",file,"/>")
+```
 
 The RAF reported is the one predicted for cases, and not the actual RAF for cases.
 
