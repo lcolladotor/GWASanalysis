@@ -35,8 +35,14 @@ N° Cases = `r cases`
 N° Controls = `r controls`
 
 ## Risk allele frequency
-![`r paste(snp[,7], snp[,1], sep = "_")`](images_evidence/`r paste(snp[,7], snp[,1], sep = "_")`.png)
-![`r paste(snp[,7], snp[,1], 2, sep = "_")`](images_evidence/`r paste(snp[,7], snp[,1], 2, sep = "_")`.png)
+<center>
+<img src="./images_evidence/`r paste(snp[,7], snp[,1], sep = "_")`.png"/>
+</center>
+
+<center>
+<img src="./images_evidence/`r paste(snp[,7], snp[,1], 2, sep = "_")`.png"/>
+</center>
+
 The RAF reported is the one predicted for cases, and not the actual RAF for cases.
 
 ## STATUS: INCONCLUSIVE
