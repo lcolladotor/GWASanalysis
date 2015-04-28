@@ -2,7 +2,6 @@
 
 ```{r}
 library('gdata')
-library('knitr')
 
 setwd("/home/joseah/Documents/jeff_leek_lab/github/GWASanalysis/exploratory_data_analysis")
 
@@ -13,7 +12,7 @@ assoc <- read.xls("phenotypes_to_study_w_required_data.xlsx", sheet = 1, header 
 
 ```{r}
 snp <- assoc[1,]
-kable(snp, col.names = names(assoc[1,]))
+knitr::kable(snp, col.names = names(assoc[1,]))
 
 ```
 
