@@ -1,4 +1,45 @@
-18823527    http://europepmc.org/abstract/MED/18823527	A genome-wide association study for late-onset Alzheimer's disease using DNA pooling.	Alzheimer's disease	1,082 European ancestry cases, 1,239 European ancestry controls	1,400 controls	rs727153	0.52	0.000003	1.63
-> DNA samples were collected from __1,082 individuals with LOAD__ and __1,239 control subjects__. 
-> Age at onset ranged from 60 to 95 and Controls were matched for age (mean = 76.53 years, SD = 33), 
-> gender and ethnicity
+# Curation Evidence
+
+```{r}
+library('gdata')
+library('knitr')
+
+# Define functions
+"%p%"  <- function(x, y) paste0(x, y)
+
+setwd("/home/joseah/Documents/jeff_leek_lab/github/GWASanalysis/exploratory_data_analysis")
+
+assoc <- read.xls("phenotypes_to_study_w_required_data.xlsx", sheet = 1, header = TRUE)
+```
+
+---
+```{r}
+snp <- assoc[1,]
+kable(snp, col.names = names(assoc[1,]))
+```
+
+## Populations: Cases and controls
+
+> DNA samples were collected from __1,082 individuals with LOAD__ and __1,239 control subjects__. Age at onset ranged from 60 to 95 and Controls were matched for age (mean = 76.53 years, SD = 33), gender and ethnicity.
+> The most significant SNP, rs727153, reached a p-value of 2.4 × 10-5.
+> To further test the associations, __we added control data from a set of controls comprising approximately 1400 subjects__ from the 1958 Birth Cohort for the 79 SNPs that showed individual genotype p-value ≤ 0.05. 
+
+```{r echo=FALSE}
+cases = 1082
+controls = 1239 + 1400
+
+```
+
+N° Cases = `r cases`
+
+N° Controls = `r controls`
+
+## Risk allele frequency
+![alt text](images_evidence/`r paste(snp[,7], snp[,1], sep = "_")`.png)
+![alt text](images_evidence/`r paste(snp[,7], snp[,1], 2, sep = "_")`.png)
+The RAF reported is the one predicted for cases, and not the actual RAF for cases.
+
+## STATUS: INCONCLUSIVE
+
+---
+
