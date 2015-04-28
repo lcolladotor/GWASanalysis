@@ -33,7 +33,7 @@ N° Controls = `r controls`
 
 ## Risk allele frequency
 
-```{r echo =FALSE}
+```{r results='asis', echo = FALSE}
 file <- paste0("'", './images_evidence/', snp[,7], "_", snp[,1],".png", "'")
 cat("<img src=",file,"/>")
 file <- paste0("'", './images_evidence/', snp[,7], "_", snp[,1], "_2", ".png", "'")
