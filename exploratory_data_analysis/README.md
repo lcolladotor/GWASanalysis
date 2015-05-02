@@ -84,6 +84,7 @@ Get the following fields for the previous phenotypes:
 - DISEASE/TRAIT
 - INITIAL SAMPLE DESCRIPTION
 - REPLICATION SAMPLE DESCRIPTION
+- STRONGEST SNP-RISK ALLELE
 - SNPS
 - RISK ALLELE FREQUENCY
 - P-VALUE OR or BETA
@@ -117,15 +118,17 @@ After having the phenotypes to study, manual curation for each paper is performe
 - Odd ratio
 - Determining whether the risk allele frequency belongs to case or control group.
 
-__LibreOffice Calc__ __Version: 4.2.7.2, Build ID: 420m0(Build:2)__ is used to curate the __phenotypes_to_study_w_required_data__ file.
 
 The following are columns added to this file in order to curate each study:
 - CASES: Sample size of population for cases
 - CONTROLS: Sample size of population for controls
-- RAF-CONTROLS: Logical vector to determine whether the reported RAF belongs to cases or controls. If __T__, RAF belongs to controls
 - STUDY PHASE: Phase of study considered in the catalog, (e.g. first, second, third, replication or combined phase)
 - CLINICAL VARIABLES: Some relevant clinical measures carried out in the study
 - NOTES: Style-free notes about the study (observations, important information, study design, etc..)
+
+Data table is ordered by phenotype column in ascending mode.
+
+
 
 
 ## Breast cancer
