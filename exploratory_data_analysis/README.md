@@ -98,7 +98,7 @@ Get the following fields for the previous phenotypes:
 Look for associations with reported odd ratio, risk allele frequency and case and control sample description:
 
 ```
-grep -wv "NR" phenotypes_to_study.txt | grep -E 'case|control' | grep -vw "NA" | awk -F'\t' '$7 != "" && $8 != "" && $9 != "" && $10 != "" ' | sort -u > phenotypes_to_study_w_required_data
+grep -wv "NR" phenotypes_to_study.txt | grep -E 'case|control' | grep -vw "NA" | awk -F'\t' '$8 != "" && $9 != "" && $10 != "" && $11 != "" ' | sort -u > phenotypes_to_study_w_required_data
 ```
 
 Sometimes, there are associations reported more than once since the SNPs were mapped to different genes:
