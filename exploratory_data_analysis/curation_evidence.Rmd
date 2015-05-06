@@ -360,7 +360,7 @@ curated_gwas_senses <- cbind(curated_gwas, senses)
 ```
 
 
-```{r chart, results='asis', fig.width=6, fig.height=2.5}
+```{r chart, results='asis'}
 library('rCharts')
 dP <- dPlot(
   Sensitivity ~ Specificity,
