@@ -1,30 +1,59 @@
 # Curation Evidence
 
 ```{r}
-library('gdata')
-
+library('knitr')
 setwd("/home/joseah/Documents/jeff_leek_lab/github/GWASanalysis/exploratory_data_analysis")
-assoc <- read.xls("phenotypes_to_study_w_required_data.xlsx", sheet = 1, header = TRUE)
+columns <- c("PUBMEDID", "LINK", "STUDY", "DISEASE.TRAIT", "INITIAL.SAMPLE.DESCRIPTION", "REPLICATION.SAMPLE.DESCRIPTION", "STRONGEST.SNP_RISK.ALLELE",
+             "SNPS", "RISK.ALLELE.FREQUENCY", "P-VALUE", "ORorBETA")
+
+assoc <- read.table("phenotypes_to_study_w_required_data", sep = "\t", 
+                    col.names = columns, quote = "", comment.char = "")
+assoc <- assoc[order(assoc$DISEASE.TRAIT),]
+rownames(assoc) <- paste(seq_len(nrow(assoc)), assoc$SNPS, sep = "_")
+assoc$CASES <- NA
+assoc$CONTROLS <- NA
+assoc$STAGE <- NA
+assoc$CLINICAL.VARIABLES <- NA
+assoc$NOTES <- NA
+```
+```{r echo=FALSE}
+SenSes <- function(studies){
+    n_cases <- studies$CASES
+    n_controls <- studies$CONTROLS
+    RAF <- studies$RISK.ALLELE.FREQUENCY
+    OR <- studies$ORorBETA
+    b <- n_controls * RAF
+    d <- n_controls - b
+    a <- b*n_cases/((d/OR) + b)
+    c <- n_cases - a
+    Sensitivity = a/(a+c)
+    Specificity = d/(b+d)
+    return(list(Sensitivity = Sensitivity, Specificity = Specificity))
+}
 
 ```
 
 ---
 
-```{r results = 'asis'}
-snp <- assoc[1,]
-knitr::kable(snp, col.names = names(assoc[1,]))
+```{r results = 'asis', echo=FALSE}
+snp <- assoc[2,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+```
+
+### Populations: Cases and controls
+
+```{r results='asis', echo = FALSE}
+file <- paste0("'", './images_evidence/', snp[,1],".png", "'")
+cat("<img src=",file,"/>")
 
 ```
 
-## Populations: Cases and controls
 
-> DNA samples were collected from __1,082 individuals with LOAD__ and __1,239 control subjects__. Age at onset ranged from 60 to 95 and Controls were matched for age (mean = 76.53 years, SD = 33), gender and ethnicity.
-> The most significant SNP, rs727153, reached a p-value of 2.4 × 10-5.
-> To further test the associations, __we added control data from a set of controls comprising approximately 1400 subjects__ from the 1958 Birth Cohort for the 79 SNPs that showed individual genotype p-value ≤ 0.05. 
+Sum of cases and controls for initial and replication sample:
 
 ```{r echo=FALSE}
-cases = 1082
-controls = 1239 + 1400
+cases = 844 + 1547
+controls = 1255 + 1209
 
 ```
 
@@ -32,17 +61,352 @@ N° Cases = `r cases`
 
 N° Controls = `r controls`
 
-## Risk allele frequency
+The number of cases and controls to be considered will be the ones reported in the previous table.
 
-```{r results='asis', echo = FALSE}
-file <- paste0("'", './images_evidence/', snp[,7], "_", snp[,1],".png", "'")
-cat("<img src=",file,"/>")
+```{r echo=FALSE}
+snp$CASES <- 2449
+snp$CONTROLS <- 2561 
 
 ```
 
-The RAF reported is the one predicted for cases, and not the actual RAF for cases.
+__N° Cases = `r cases`__
 
-## STATUS: INCONCLUSIVE
+__N° Controls = `r controls`__
+
+### Risk allele frequency
+The risk allele frequency is the same in the paper.
+
+
+```{r results='asis', echo = FALSE}
+snp$STAGE <- "1+2 | combined"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- NA
+snp -> assoc[2,]
+kable(t(snp))
+```
+
+### STATUS: OK
 
 ---
+
+```{r results = 'asis', echo=FALSE}
+i = 3
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+```
+
+
+### Populations: Cases and controls
+```{r results='asis', echo = FALSE}
+file <- paste0("'", './images_evidence/', snp[,1],".png", "'")
+cat("<img src=",file,"/>")
+```
+
+
+### Risk allele frequency
+The MAF for the first phase is reported for this SNP, but the RAF for the combined phase does not. We will consider the sample size for controls and cases from the first phase: 3941 cases and 7848 controls and the corresponding odd ratio 1/0.84 = `r 1/0.84`. The MAF reported corresponds in the paper corresponds to the minor allele in controls, so RAF in the catalog will be preserved. 
+
+
+```{r results='asis', echo = FALSE}
+snp$P.VALUE <- 1e-09
+snp$ORorBETA <- round(1/0.84, 2)
+snp$CASES <- 3941
+snp$CONTROLS <- 7848
+snp$STAGE <- "1"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "Heritability of up to 76% for Alzheimer's disease | Flipped odd ratio | Population attributable risk reported"
+snp -> assoc[3,]
+kable(t(snp))
+```
+
+The same assumptions are considerated for the remaining SNPs of this study.
+
+```{r results = 'asis', echo=FALSE}
+i = 4
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+```
+
+```{r results='asis', echo = FALSE}
+snp$CASES <- 3941
+snp$CONTROLS <- 7848 
+snp$STAGE <- "1"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "Heritability of up to 76% for Alzheimer's disease | Population attributable risk reported"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+```{r results = 'asis', echo=FALSE}
+i = 5
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+```
+
+```{r results='asis', echo = FALSE}
+snp$P.VALUE <- 2e-08
+snp$ORorBETA <- round(1/0.85, 2)
+snp$CASES <- 3941
+snp$CONTROLS <- 7848 
+snp$STAGE <- "1"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "Heritability of up to 76% for Alzheimer's disease | Flipped odd-ratio | Population attributable risk reported"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+### STATUS: OK
+
+---
+
+```{r results = 'asis', echo=FALSE}
+i = 6
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+```
+
+
+### Populations: Cases and controls
+```{r results='asis', echo = FALSE}
+file <- paste0("'", './images_evidence/', snp[,1],".png", "'")
+cat("<img src=",file,"/>")
+```
+
+Sample sizes for cases and controls differ from the ones reported in the catalog.
+
+### Risk allele frequency
+
+The RAF and odd ratio reported are not consistent with the catalog.
+
+Therefore, we will use the data provided by the paper for the combined stage (1+2)
+
+
+```{r results='asis', echo = FALSE}
+snp$P.VALUE <- 8e-09
+snp$RISK.ALLELE.FREQUENCY <- 1 - 0.38
+snp$ORorBETA <- round(1/0.86, 2)
+snp$CASES <- 5791
+snp$CONTROLS <- 8420
+snp$STAGE <- "1+2 | combined"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "Stratified analysis by populations: Belgium, Finland, Italy and Spain | flipped odd ratio"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+For the remaining SNPs, the same criteria will be used.
+
+```{r results = 'asis', echo=FALSE}
+i = 7
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+snp$P.VALUE <- 9e-09
+snp$RISK.ALLELE.FREQUENCY <- 1 - 0.41
+snp$ORorBETA <- round(1/0.86, 2)
+snp$CASES <- 5828
+snp$CONTROLS <- 8425
+snp$STAGE <- "1+2 | combined"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "Stratified analysis by populations: Belgium, Finland, Italy and Spain | flipped odd ratio | haplotype analysis not considered for this SNP, just association analysis in CLU locus"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+```{r results = 'asis', echo=FALSE}
+i = 8
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+```
+
+```{r results='asis', echo = FALSE}
+file <- paste0("'", './images_evidence/', snp[,1],"_2.png", "'")
+cat("<img src=",file,"/>")
+```
+
+```{r results = 'asis', echo=FALSE}
+snp$P.VALUE <- 9e-08
+snp$RISK.ALLELE.FREQUENCY <- 0.19
+snp$ORorBETA <- 1.19
+snp$CASES <- 5735
+snp$CONTROLS <- 8418
+snp$STAGE <- "1+2 | combined"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "Stratified analysis by populations: Belgium, Finland, Italy and Spain | haplotype analysis not considered for this SNP, just association analysis in CR1 locus"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+```{r results = 'asis', echo=FALSE}
+i = 9
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+snp$P.VALUE <- 4e-09
+snp$RISK.ALLELE.FREQUENCY <- 0.19
+snp$ORorBETA <- 1.21
+snp$CASES <- 5905
+snp$CONTROLS <- 8526
+snp$STAGE <- "1+2 | combined"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "Stratified analysis by populations: Belgium, Finland, Italy and Spain | haplotype analysis not considered for this SNP, just association analysis in CR1 locus"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+```{r results = 'asis', echo=FALSE}
+i = 10
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+snp$P.VALUE <- 9e-08
+snp$RISK.ALLELE.FREQUENCY <- 0.28
+snp$ORorBETA <- 1.16
+snp$CASES <- 5887
+snp$CONTROLS <- 8508
+snp$STAGE <- "1+2 | combined"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "Stratified analysis by populations: Belgium, Finland, Italy and Spain | haplotype analysis not considered for this SNP, just association analysis in CLU locus"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+---
+
+```{r results = 'asis', echo=FALSE}
+i = 32
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+file <- paste0("'", './images_evidence/', snp[,1],".png", "'")
+cat("<img src=",file,"/>") 
+snp$CASES <- 4533
+snp$CONTROLS <- 17513
+snp$STAGE <- "Combined"
+snp$CLINICAL.VARIABLES <- "Pathological breast cancer subtypes: Estrogen receptor, progesterone receptor, histopathology(ductal, lobular, ductal vs. lobular), stage, grade"
+snp$NOTES <- "Stratified analysis from multiethnic cohort: European Americans, Latinas, Hawaiians, Japanese, African Americans | Allelic interaction analysis"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+```{r results = 'asis', echo=FALSE}
+i = 33
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+file <- paste0("'", './images_evidence/', snp[,1], "_", snp[,8],".png", "'")
+cat("<img src=",file,"/>") 
+snp$CASES <- 4554
+snp$CONTROLS <- 17577
+snp$STAGE <- "Combined"
+snp$CLINICAL.VARIABLES <- "Pathological breast cancer subtypes: Estrogen receptor, progesterone receptor, histopathology(ductal, lobular, ductal vs. lobular), stage, grade"
+snp$NOTES <- "Stratified analysis from multiethnic cohort: European Americans, Latinas, Hawaiians, Japanese, African Americans | Allelic interaction analysis"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+---
+
+```{r results = 'asis', echo=FALSE}
+i = 34
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+file <- paste0("'", './images_evidence/', snp[,1],".png", "'")
+cat("<img src=",file,"/>")
+    snp$CASES <- 249 + 950 + 243
+    snp$CONTROLS <- 299 + 979 + 187
+    snp$STAGE <- "1+2+3 | combined"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- NA
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+---
+
+```{r results = 'asis', echo=FALSE}
+i = 35
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+file <- paste0("'", './images_evidence/', snp[,1],".png", "'")
+cat("<img src=",file,"/>")
+# snp$RISK.ALLELE.FREQUENCY <- 3962 - (1812/2 + 536)
+snp$CASES <- 6472
+snp$CONTROLS <- 3962
+snp$STAGE <- "1+2+3 | combined"
+snp$CLINICAL.VARIABLES <- "Age | Education | Age at menarche | Postmenopausal (%) | Age at menopause | Number of Live Births | Age at first live birth | Used HRT-Hormone replacement therapy (%) | Breast cancer family history | Prior BBD diagnosis| Body mass index | Waist-to-hip ratio"
+snp$NOTES <- NA
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+---
+
+# Sensitivity - Specificity plot
+
+```{r}
+curated_gwas <- subset(assoc, !is.na(CASES))
+
+senses <- SenSes(
+    curated_gwas[,c('CASES', 'CONTROLS', 'RISK.ALLELE.FREQUENCY', 'ORorBETA')]
+    )
+
+curated_gwas_senses <- cbind(curated_gwas, senses)
+# plot(curated_gwas_senses$Specificity, curated_gwas_senses$Sensitivity,
+#      main = "Specificity vs. Sensitivity for GWA studies",
+#      xlab = "1- Specificity", ylab = "Sensitivity", xlim = c(0, 1), ylim = c(0, 1))
+# text(curated_gwas_senses$Specificity, curated_gwas_senses$Sensitivity, 
+#       row.names(curated_gwas_senses), cex=0.6, pos=4, col="blue")
+# # text(1- curated_gwas_senses$Specificity, curated_gwas_senses$Sensitivity, 
+# #      curated_gwas_senses$RISK.ALLELE.FREQUENCY, cex=0.6, pos=1, col="blue")
+# abline(0, 1, col = "red", lty=2)
+
+
+```
+
+
+```{r chart, results='asis', fig.width=6, fig.height=2.5}
+library('rCharts')
+dP <- dPlot(
+  Sensitivity ~ Specificity,
+  groups = c("RISK.ALLELE.FREQUENCY", "P.VALUE", "ORorBETA", "DISEASE.TRAIT"),
+  data = curated_gwas_senses,
+  type = "bubble",
+  height = 650,
+  width = 800
+
+)
+dP$xAxis(type = "addMeasureAxis", overrideMax = 1, outputFormat = ".2f")
+dP$yAxis(overrideMax = 1, outputFormat = ".2f")
+dP$legend(
+   x = 190,
+   y = 10,
+   width = 400,
+   height = 10,
+   horizontalAlign = "right"
+   )
+
+dP$setTemplate(
+  afterScript = sprintf(
+'
+<script>
+var line = d3.svg.line()
+  .x(function(d) { return myChart.axes[0]._draw.scale()(d.x); })
+  .y(function(d) { return myChart.axes[1]._draw.scale()(d.y); });
+
+d3.select("#%s svg g")
+  .append("path")
+  .datum([{x:myChart.axes[0]._min,y:0},{x:myChart.axes[0]._max,y:1}])
+  .attr("d",line)
+  .style("stroke", "red")
+  .style("stroke-width",0.5)
+  .style("stroke-dasharray", "2");
+</script>
+',
+dP$params$dom
+))
+dP$save('specificity-sensitivity_plot.html', cdn = TRUE)
+cat('<a href=',paste0("'",getwd(), "/", 'specificity-sensitivity_plot.html', "'"),'> specificity-sensitivity plot</a>')
+```
+
+---
+
+
+
+
 
