@@ -16,6 +16,7 @@ assoc$STAGE <- NA
 assoc$CLINICAL.VARIABLES <- NA
 assoc$NOTES <- NA
 ```
+
 ```{r echo=FALSE}
 SenSes <- function(studies){
     n_cases <- studies$CASES
@@ -337,6 +338,131 @@ kable(t(snp))
 
 ---
 
+```{r results = 'asis', echo=FALSE}
+i = 219
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+file <- paste0("'", './images_evidence/', snp[,1],".png", "'")
+cat("<img src=",file,"/>")
+snp$CASES <- 6538
+snp$CONTROLS <- 7363
+snp$STAGE <- "1+2 | combined | scan + replication"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "flipped odd ratio | complementary RAF"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+---
+
+```{r results = 'asis', echo=FALSE}
+i = 220
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+file <- paste0("'", './images_evidence/', snp[,1], "_", snp[,8],".png", "'")
+cat("<img src=",file,"/>")
+snp$CASES <- 5504
+snp$CONTROLS <- 4541
+snp$STAGE <- "1"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "Due to missing allele frequencies for combined stage, first stage was considered"
+snp -> assoc[i,]
+kable(t(snp))
+
+
+i = 224
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+snp$CASES <- 5457
+snp$CONTROLS <- 4492
+snp$STAGE <- "1+2 | combined" 
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)"
+snp -> assoc[i,]
+kable(t(snp))
+
+i = 226
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+snp$CASES <- 6601
+snp$CONTROLS <- 7433
+snp$STAGE <- "1+2 | combined" 
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "flipped odd ratio | The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+---
+
+
+```{r results = 'asis', echo=FALSE}
+i = 221
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+file <- paste0("'", './images_evidence/', snp[,1], "_", snp[,8],".png", "'")
+cat("<img src=",file,"/>")
+snp$CASES <- 5505
+snp$CONTROLS <- 4543
+snp$STAGE <- "1"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)"
+snp -> assoc[i,]
+kable(t(snp))
+
+i = 223
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+snp$CASES <- 5450
+snp$CONTROLS <- 4493
+snp$STAGE <- "1"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)"
+snp -> assoc[i,]
+kable(t(snp))
+
+i = 225
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+snp$CASES <- 4066
+snp$CONTROLS <- 4422
+snp$STAGE <- "1"
+snp$CLINICAL.VARIABLES <- NA
+snp$NOTES <- "flipped odd ratio | complementary RAF | The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis) | adenocarcinoma cancer cases only"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+---
+
+```{r results = 'asis', echo=FALSE}
+i = 238
+snp <- assoc[i,]
+cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
+```
+> After excluding SNPs not present on the HumanHap 550v3 chip used
+for the control samples, the final data set comprised 491,238
+autosomal markers from 597 cases and 1295 control subjects.
+This number of SNPs corresponds to 79% of the 620,901 SNPs
+genotyped per patient.
+> The replication sample consisted of 409 inpatients (179 men, 230 women) and
+541 German control subjects matched to provide an equivalent
+distribution of age and sex
+
+```{r results = 'asis', echo=FALSE}
+file <- paste0("'", './images_evidence/', snp[,1], ".png", "'")
+cat("<img src=",file,"/>")
+snp$CASES <- 597 + 409
+snp$CONTROLS <- 1295 + 541
+snp$STAGE <- "1 + 2 | combined | study + replication"
+snp$CLINICAL.VARIABLES <- "Working memory task | Implicit emotion recognition task | Reward anticipation task | Functional magnetic resonance imaging (fMRI)"
+snp$NOTES <- "Sum of study cohort and replication individuals to get sample sizes for controls and cases"
+snp -> assoc[i,]
+kable(t(snp))
+```
+
+---
+
 # Sensitivity - Specificity plot
 
 ```{r}
@@ -364,7 +490,7 @@ curated_gwas_senses <- cbind(curated_gwas, senses)
 library('rCharts')
 dP <- dPlot(
   Sensitivity ~ Specificity,
-  groups = c("RISK.ALLELE.FREQUENCY", "P.VALUE", "ORorBETA", "DISEASE.TRAIT"),
+  groups = c("SNPS","RISK.ALLELE.FREQUENCY", "P.VALUE", "ORorBETA", "DISEASE.TRAIT"),
   data = curated_gwas_senses,
   type = "bubble",
   height = 650,
@@ -374,10 +500,10 @@ dP <- dPlot(
 dP$xAxis(type = "addMeasureAxis", overrideMax = 1, outputFormat = ".2f")
 dP$yAxis(overrideMax = 1, outputFormat = ".2f")
 dP$legend(
-   x = 190,
+   x = 200,
    y = 10,
    width = 400,
-   height = 10,
+   height = 20,
    horizontalAlign = "right"
    )
 
@@ -400,13 +526,16 @@ d3.select("#%s svg g")
 ',
 dP$params$dom
 ))
-dP$save('specificity-sensitivity_plot.html', cdn = TRUE)
-cat('<a href=',paste0("'",getwd(), "/", 'specificity-sensitivity_plot.html', "'"),'> specificity-sensitivity plot</a>')
+
+dP$save('specificity-sensitivity_plot.html', standalone = TRUE)
+cat('<a href=specificity-sensitivity_plot.html> specificity-sensitivity plot</a>')
 ```
 
 ---
 
+```{r reproducibility}
+# Ensure reproducibility
+options(width = 120)
+devtools::session_info()
 
-
-
-
+```
