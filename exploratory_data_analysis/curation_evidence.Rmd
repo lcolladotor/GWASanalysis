@@ -1,6 +1,10 @@
-# Curation Evidence
-
-```{r}
+---
+title: "Issues to calculate sensitivity and specificity of GWA studies"
+author: "Jose Alquicira Hernandez"
+date: "11/05/2015"
+output: html_document
+---
+```{r open file, echo=FALSE}
 library('knitr')
 setwd("/home/joseah/Documents/jeff_leek_lab/github/GWASanalysis/exploratory_data_analysis")
 columns <- c("PUBMEDID", "LINK", "STUDY", "DISEASE.TRAIT", "INITIAL.SAMPLE.DESCRIPTION", "REPLICATION.SAMPLE.DESCRIPTION", "STRONGEST.SNP_RISK.ALLELE",
@@ -15,6 +19,12 @@ assoc$CONTROLS <- NA
 assoc$STAGE <- NA
 assoc$CLINICAL.VARIABLES <- NA
 assoc$NOTES <- NA
+assoc$Sensitivity <- NA
+assoc$Specificity <- NA
+assoc$A <- NA
+assoc$B <- NA
+assoc$C <- NA
+assoc$D <- NA
 ```
 
 ```{r echo=FALSE}
@@ -29,15 +39,31 @@ SenSes <- function(studies){
     c <- n_cases - a
     Sensitivity = a/(a+c)
     Specificity = d/(b+d)
-    return(list(Sensitivity = Sensitivity, Specificity = Specificity))
+    return(list(Sensitivity = Sensitivity, 
+                Specificity = Specificity, 
+                A = round(a),
+                B = round(b),
+                C = round(c),
+                D = round(d)))
 }
+
+contingency_table <- function(snp){
+    cont_table <-matrix(snp[c("A", "B","CASES", "C", "D", "CONTROLS")], 
+                        nrow = 3, 
+                        dimnames = list(c("+", "-", "Total"), 
+                                        c("Cases", "Controls"))
+                        )
+    
+    kable(cont_table)
+    }
 
 ```
 
 ---
 
 ```{r results = 'asis', echo=FALSE}
-snp <- assoc[2,]
+i <- 2
+snp <- assoc[i,]
 cat("#", as.character(snp[,8]), "|", as.character(snp[,4]))
 ```
 
@@ -70,9 +96,9 @@ snp$CONTROLS <- 2561
 
 ```
 
-__N° Cases = `r cases`__
+__N° Cases = `r snp$CASES`__
 
-__N° Controls = `r controls`__
+__N° Controls = `r snp$CONTROLS`__
 
 ### Risk allele frequency
 The risk allele frequency is the same in the paper.
@@ -82,11 +108,11 @@ The risk allele frequency is the same in the paper.
 snp$STAGE <- "1+2 | combined"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- NA
-snp -> assoc[2,]
-kable(t(snp))
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
+snp -> assoc[i,]
+contingency_table(snp)
 ```
-
-### STATUS: OK
 
 ---
 
@@ -116,8 +142,10 @@ snp$CONTROLS <- 7848
 snp$STAGE <- "1"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "Heritability of up to 76% for Alzheimer's disease | Flipped odd ratio | Population attributable risk reported"
-snp -> assoc[3,]
-kable(t(snp))
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
+snp -> assoc[i,]
+contingency_table(snp)
 ```
 
 The same assumptions are considerated for the remaining SNPs of this study.
@@ -134,8 +162,10 @@ snp$CONTROLS <- 7848
 snp$STAGE <- "1"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "Heritability of up to 76% for Alzheimer's disease | Population attributable risk reported"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ```{r results = 'asis', echo=FALSE}
@@ -152,11 +182,11 @@ snp$CONTROLS <- 7848
 snp$STAGE <- "1"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "Heritability of up to 76% for Alzheimer's disease | Flipped odd-ratio | Population attributable risk reported"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
-
-### STATUS: OK
 
 ---
 
@@ -191,8 +221,10 @@ snp$CONTROLS <- 8420
 snp$STAGE <- "1+2 | combined"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "Stratified analysis by populations: Belgium, Finland, Italy and Spain | flipped odd ratio"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 For the remaining SNPs, the same criteria will be used.
@@ -209,8 +241,10 @@ snp$CONTROLS <- 8425
 snp$STAGE <- "1+2 | combined"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "Stratified analysis by populations: Belgium, Finland, Italy and Spain | flipped odd ratio | haplotype analysis not considered for this SNP, just association analysis in CLU locus"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ```{r results = 'asis', echo=FALSE}
@@ -233,8 +267,10 @@ snp$CONTROLS <- 8418
 snp$STAGE <- "1+2 | combined"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "Stratified analysis by populations: Belgium, Finland, Italy and Spain | haplotype analysis not considered for this SNP, just association analysis in CR1 locus"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ```{r results = 'asis', echo=FALSE}
@@ -249,8 +285,10 @@ snp$CONTROLS <- 8526
 snp$STAGE <- "1+2 | combined"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "Stratified analysis by populations: Belgium, Finland, Italy and Spain | haplotype analysis not considered for this SNP, just association analysis in CR1 locus"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ```{r results = 'asis', echo=FALSE}
@@ -265,8 +303,10 @@ snp$CONTROLS <- 8508
 snp$STAGE <- "1+2 | combined"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "Stratified analysis by populations: Belgium, Finland, Italy and Spain | haplotype analysis not considered for this SNP, just association analysis in CLU locus"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ---
@@ -282,8 +322,10 @@ snp$CONTROLS <- 17513
 snp$STAGE <- "Combined"
 snp$CLINICAL.VARIABLES <- "Pathological breast cancer subtypes: Estrogen receptor, progesterone receptor, histopathology(ductal, lobular, ductal vs. lobular), stage, grade"
 snp$NOTES <- "Stratified analysis from multiethnic cohort: European Americans, Latinas, Hawaiians, Japanese, African Americans | Allelic interaction analysis"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ```{r results = 'asis', echo=FALSE}
@@ -297,8 +339,10 @@ snp$CONTROLS <- 17577
 snp$STAGE <- "Combined"
 snp$CLINICAL.VARIABLES <- "Pathological breast cancer subtypes: Estrogen receptor, progesterone receptor, histopathology(ductal, lobular, ductal vs. lobular), stage, grade"
 snp$NOTES <- "Stratified analysis from multiethnic cohort: European Americans, Latinas, Hawaiians, Japanese, African Americans | Allelic interaction analysis"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ---
@@ -314,8 +358,10 @@ cat("<img src=",file,"/>")
     snp$STAGE <- "1+2+3 | combined"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- NA
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ---
@@ -332,8 +378,10 @@ snp$CONTROLS <- 3962
 snp$STAGE <- "1+2+3 | combined"
 snp$CLINICAL.VARIABLES <- "Age | Education | Age at menarche | Postmenopausal (%) | Age at menopause | Number of Live Births | Age at first live birth | Used HRT-Hormone replacement therapy (%) | Breast cancer family history | Prior BBD diagnosis| Body mass index | Waist-to-hip ratio"
 snp$NOTES <- NA
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ---
@@ -349,8 +397,10 @@ snp$CONTROLS <- 7363
 snp$STAGE <- "1+2 | combined | scan + replication"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "flipped odd ratio | complementary RAF"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ---
@@ -366,8 +416,10 @@ snp$CONTROLS <- 4541
 snp$STAGE <- "1"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "Due to missing allele frequencies for combined stage, first stage was considered"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 
 
 i = 224
@@ -378,8 +430,10 @@ snp$CONTROLS <- 4492
 snp$STAGE <- "1+2 | combined" 
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 
 i = 226
 snp <- assoc[i,]
@@ -389,8 +443,10 @@ snp$CONTROLS <- 7433
 snp$STAGE <- "1+2 | combined" 
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "flipped odd ratio | The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ---
@@ -407,8 +463,10 @@ snp$CONTROLS <- 4543
 snp$STAGE <- "1"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 
 i = 223
 snp <- assoc[i,]
@@ -418,8 +476,10 @@ snp$CONTROLS <- 4493
 snp$STAGE <- "1"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 
 i = 225
 snp <- assoc[i,]
@@ -429,8 +489,10 @@ snp$CONTROLS <- 4422
 snp$STAGE <- "1"
 snp$CLINICAL.VARIABLES <- NA
 snp$NOTES <- "flipped odd ratio | complementary RAF | The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis) | adenocarcinoma cancer cases only"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ---
@@ -457,8 +519,10 @@ snp$CONTROLS <- 1295 + 541
 snp$STAGE <- "1 + 2 | combined | study + replication"
 snp$CLINICAL.VARIABLES <- "Working memory task | Implicit emotion recognition task | Reward anticipation task | Functional magnetic resonance imaging (fMRI)"
 snp$NOTES <- "Sum of study cohort and replication individuals to get sample sizes for controls and cases"
+snp[,c("Sensitivity", "Specificity", "A", "B", "C", "D")] <- SenSes(snp)
+kable(t(snp[,!(names(snp) %in% c("A", "B","CASES", "C", "D", "CONTROLS"))]))
 snp -> assoc[i,]
-kable(t(snp))
+contingency_table(snp)
 ```
 
 ---
@@ -486,7 +550,7 @@ curated_gwas_senses <- cbind(curated_gwas, senses)
 ```
 
 
-```{r chart, results='asis'}
+```{r chart, results='asis', comment = NA}
 library('rCharts')
 dP <- dPlot(
   Sensitivity ~ Specificity,
@@ -509,8 +573,7 @@ dP$legend(
 
 dP$setTemplate(
   afterScript = sprintf(
-'
-<script>
+'<script>
 var line = d3.svg.line()
   .x(function(d) { return myChart.axes[0]._draw.scale()(d.x); })
   .y(function(d) { return myChart.axes[1]._draw.scale()(d.y); });
@@ -527,7 +590,7 @@ d3.select("#%s svg g")
 dP$params$dom
 ))
 
-dP$save('specificity-sensitivity_plot.html', standalone = TRUE)
+dP$save('specificity-sensitivity_plot.html', cdn = TRUE)
 cat('<a href=specificity-sensitivity_plot.html> specificity-sensitivity plot</a>')
 ```
 
