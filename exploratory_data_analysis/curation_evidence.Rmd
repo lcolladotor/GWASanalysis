@@ -48,7 +48,7 @@ SenSes <- function(studies){
 }
 
 contingency_table <- function(snp){
-    cont_table <-matrix(snp[c("A", "B","CASES", "C", "D", "CONTROLS")], 
+    cont_table <-matrix(snp[c("A", "C","CASES", "B", "D", "CONTROLS")], 
                         nrow = 3, 
                         dimnames = list(c(paste(unlist(strsplit(snp$STRONGEST.SNP_RISK.ALLELE, "-"))[2], "(+)"), 
                                           paste(unlist(strsplit(snp$STRONGEST.SNP_RISK.ALLELE, "-"))[2], "( - )"), 
