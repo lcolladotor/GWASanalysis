@@ -1,0 +1,245 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    
+    <script src='//d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='//dimplejs.org/dist/dimple.v2.1.0.min.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 650px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart1c143e20c364' class = 'rChart dimple'></div>    
+    <script type="text/javascript">
+  var opts = {
+ "dom": "chart1c143e20c364",
+"width":    800,
+"height":    650,
+"xAxis": {
+ "type": "addMeasureAxis",
+"showPercent": false,
+"overrideMax":      1,
+"outputFormat": ".2f" 
+},
+"yAxis": {
+ "type": "addMeasureAxis",
+"showPercent": false,
+"overrideMax":      1,
+"outputFormat": ".2f" 
+},
+"zAxis": [],
+"colorAxis": [],
+"defaultColors": [],
+"layers": [],
+"legend": {
+ "x":    200,
+"y":     10,
+"width":    400,
+"height":     20,
+"horizontalAlign": "right" 
+},
+"x": "Specificity",
+"y": "Sensitivity",
+"groups": [ "SNPS", "RISK.ALLELE.FREQUENCY", "P.VALUE", "ORorBETA", "DISEASE.TRAIT" ],
+"type": "bubble",
+"id": "chart1c143e20c364" 
+},
+    data = [{"PUBMEDID":19136949,"LINK":"http://europepmc.org/abstract/MED/19136949","STUDY":"Genetic variation in PCDH11X is associated with susceptibility to late-onset Alzheimer's disease.","DISEASE.TRAIT":"Alzheimer's disease","INITIAL.SAMPLE.DESCRIPTION":"844 European ancestry cases, 1,255 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"1,547 European ancestry cases, 1,209 European ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs2573905-?","SNPS":"rs2573905","RISK.ALLELE.FREQUENCY":0.46,"P.VALUE":2e-07,"ORorBETA":1.29,"CASES":2449,"CONTROLS":2561,"STAGE":"1+2 | combined","CLINICAL.VARIABLES":"NA","NOTES":"NA","Sensitivity":0.523557437797777,"Specificity":0.54,"A":1282,"B":1178,"C":1167,"D":1383,"Sensitivity":0.523557437797777,"Specificity":0.54,"A":1282,"B":1178,"C":1167,"D":1383},{"PUBMEDID":19734902,"LINK":"http://europepmc.org/abstract/MED/19734902","STUDY":"Genome-wide association study identifies variants at CLU and PICALM associated with Alzheimer's disease.","DISEASE.TRAIT":"Alzheimer's disease","INITIAL.SAMPLE.DESCRIPTION":"3,941 European ancestry cases, 7,848 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"2,023 European ancestry cases, 2,340 European ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs11136000-?","SNPS":"rs11136000","RISK.ALLELE.FREQUENCY":0.6,"P.VALUE":1e-09,"ORorBETA":1.19,"CASES":3941,"CONTROLS":7848,"STAGE":"1","CLINICAL.VARIABLES":"NA","NOTES":"Heritability of up to 76% for Alzheimer's disease | Flipped odd ratio | Population attributable risk reported","Sensitivity":0.640933572710952,"Specificity":0.4,"A":2526,"B":4709,"C":1415,"D":3139,"Sensitivity":0.640933572710952,"Specificity":0.4,"A":2526,"B":4709,"C":1415,"D":3139},{"PUBMEDID":19734902,"LINK":"http://europepmc.org/abstract/MED/19734902","STUDY":"Genome-wide association study identifies variants at CLU and PICALM associated with Alzheimer's disease.","DISEASE.TRAIT":"Alzheimer's disease","INITIAL.SAMPLE.DESCRIPTION":"3,941 European ancestry cases, 7,848 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"2,023 European ancestry cases, 2,340 European ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs2075650-?","SNPS":"rs2075650","RISK.ALLELE.FREQUENCY":0.15,"P.VALUE":2e-157,"ORorBETA":2.53,"CASES":3941,"CONTROLS":7848,"STAGE":"1","CLINICAL.VARIABLES":"NA","NOTES":"Heritability of up to 76% for Alzheimer's disease | Population attributable risk reported","Sensitivity":0.308662057747052,"Specificity":0.85,"A":1216,"B":1177,"C":2725,"D":6671,"Sensitivity":0.308662057747052,"Specificity":0.85,"A":1216,"B":1177,"C":2725,"D":6671},{"PUBMEDID":19734902,"LINK":"http://europepmc.org/abstract/MED/19734902","STUDY":"Genome-wide association study identifies variants at CLU and PICALM associated with Alzheimer's disease.","DISEASE.TRAIT":"Alzheimer's disease","INITIAL.SAMPLE.DESCRIPTION":"3,941 European ancestry cases, 7,848 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"2,023 European ancestry cases, 2,340 European ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs3851179-?","SNPS":"rs3851179","RISK.ALLELE.FREQUENCY":0.63,"P.VALUE":2e-08,"ORorBETA":1.18,"CASES":3941,"CONTROLS":7848,"STAGE":"1","CLINICAL.VARIABLES":"NA","NOTES":"Heritability of up to 76% for Alzheimer's disease | Flipped odd-ratio | Population attributable risk reported","Sensitivity":0.66768456978624,"Specificity":0.37,"A":2631,"B":4944,"C":1310,"D":2904,"Sensitivity":0.66768456978624,"Specificity":0.37,"A":2631,"B":4944,"C":1310,"D":2904},{"PUBMEDID":19734903,"LINK":"http://europepmc.org/abstract/MED/19734903","STUDY":"Genome-wide association study identifies variants at CLU and CR1 associated with Alzheimer's disease.","DISEASE.TRAIT":"Alzheimer's disease","INITIAL.SAMPLE.DESCRIPTION":"2,032 European ancestry cases, 5,328 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"3,978 European ancestry cases, 3,297 European ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs11136000-?","SNPS":"rs11136000","RISK.ALLELE.FREQUENCY":0.62,"P.VALUE":8e-09,"ORorBETA":1.16,"CASES":5791,"CONTROLS":8420,"STAGE":"1+2 | combined","CLINICAL.VARIABLES":"NA","NOTES":"Stratified analysis by populations: Belgium, Finland, Italy and Spain | flipped odd ratio","Sensitivity":0.65429403202329,"Specificity":0.38,"A":3789,"B":5220,"C":2002,"D":3200,"Sensitivity":0.65429403202329,"Specificity":0.38,"A":3789,"B":5220,"C":2002,"D":3200},{"PUBMEDID":19734903,"LINK":"http://europepmc.org/abstract/MED/19734903","STUDY":"Genome-wide association study identifies variants at CLU and CR1 associated with Alzheimer's disease.","DISEASE.TRAIT":"Alzheimer's disease","INITIAL.SAMPLE.DESCRIPTION":"2,032 European ancestry cases, 5,328 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"3,978 European ancestry cases, 3,297 European ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs2279590-?","SNPS":"rs2279590","RISK.ALLELE.FREQUENCY":0.59,"P.VALUE":9e-09,"ORorBETA":1.16,"CASES":5828,"CONTROLS":8425,"STAGE":"1+2 | combined","CLINICAL.VARIABLES":"NA","NOTES":"Stratified analysis by populations: Belgium, Finland, Italy and Spain | flipped odd ratio | haplotype analysis not considered for this SNP, just association analysis in CLU locus","Sensitivity":0.625365497076023,"Specificity":0.41,"A":3645,"B":4971,"C":2183,"D":3454,"Sensitivity":0.625365497076023,"Specificity":0.41,"A":3645,"B":4971,"C":2183,"D":3454},{"PUBMEDID":19734903,"LINK":"http://europepmc.org/abstract/MED/19734903","STUDY":"Genome-wide association study identifies variants at CLU and CR1 associated with Alzheimer's disease.","DISEASE.TRAIT":"Alzheimer's disease","INITIAL.SAMPLE.DESCRIPTION":"2,032 European ancestry cases, 5,328 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"3,978 European ancestry cases, 3,297 European ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs3818361-?","SNPS":"rs3818361","RISK.ALLELE.FREQUENCY":0.19,"P.VALUE":9e-08,"ORorBETA":1.19,"CASES":5735,"CONTROLS":8418,"STAGE":"1+2 | combined","CLINICAL.VARIABLES":"NA","NOTES":"Stratified analysis by populations: Belgium, Finland, Italy and Spain | haplotype analysis not considered for this SNP, just association analysis in CR1 locus","Sensitivity":0.21822217932632,"Specificity":0.81,"A":1252,"B":1599,"C":4483,"D":6819,"Sensitivity":0.21822217932632,"Specificity":0.81,"A":1252,"B":1599,"C":4483,"D":6819},{"PUBMEDID":19734903,"LINK":"http://europepmc.org/abstract/MED/19734903","STUDY":"Genome-wide association study identifies variants at CLU and CR1 associated with Alzheimer's disease.","DISEASE.TRAIT":"Alzheimer's disease","INITIAL.SAMPLE.DESCRIPTION":"2,032 European ancestry cases, 5,328 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"3,978 European ancestry cases, 3,297 European ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs6656401-?","SNPS":"rs6656401","RISK.ALLELE.FREQUENCY":0.19,"P.VALUE":4e-09,"ORorBETA":1.21,"CASES":5905,"CONTROLS":8526,"STAGE":"1+2 | combined","CLINICAL.VARIABLES":"NA","NOTES":"Stratified analysis by populations: Belgium, Finland, Italy and Spain | haplotype analysis not considered for this SNP, just association analysis in CR1 locus","Sensitivity":0.221078949899029,"Specificity":0.81,"A":1305,"B":1620,"C":4600,"D":6906,"Sensitivity":0.221078949899029,"Specificity":0.81,"A":1305,"B":1620,"C":4600,"D":6906},{"PUBMEDID":19734903,"LINK":"http://europepmc.org/abstract/MED/19734903","STUDY":"Genome-wide association study identifies variants at CLU and CR1 associated with Alzheimer's disease.","DISEASE.TRAIT":"Alzheimer's disease","INITIAL.SAMPLE.DESCRIPTION":"2,032 European ancestry cases, 5,328 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"3,978 European ancestry cases, 3,297 European ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs9331888-?","SNPS":"rs9331888","RISK.ALLELE.FREQUENCY":0.28,"P.VALUE":9e-08,"ORorBETA":1.16,"CASES":5887,"CONTROLS":8508,"STAGE":"1+2 | combined","CLINICAL.VARIABLES":"NA","NOTES":"Stratified analysis by populations: Belgium, Finland, Italy and Spain | haplotype analysis not considered for this SNP, just association analysis in CLU locus","Sensitivity":0.310872894333844,"Specificity":0.72,"A":1830,"B":2382,"C":4057,"D":6126,"Sensitivity":0.310872894333844,"Specificity":0.72,"A":1830,"B":2382,"C":4057,"D":6126},{"PUBMEDID":17529974,"LINK":"http://europepmc.org/abstract/MED/17529974","STUDY":"Common variants on chromosomes 2q35 and 16q12 confer susceptibility to estrogen receptor-positive breast cancer.","DISEASE.TRAIT":"Breast cancer","INITIAL.SAMPLE.DESCRIPTION":"1,599 European ancestry cases, 11,546 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"2,954 European ancestry cases, 5,967 European ancestry controls, Up to 561 Japanese ancestry cases, Up to 565 Japanese ancestry control, Up to 422 African American cases, Up to 448 African American controls, Up to 418 Hispanic cases, Up to 422 Hispanic controls, Up to 148 cases, Up to 293 controls","STRONGEST.SNP_RISK.ALLELE":"rs13387042-A","SNPS":"rs13387042","RISK.ALLELE.FREQUENCY":0.5,"P.VALUE":1e-13,"ORorBETA":1.2,"CASES":4533,"CONTROLS":17513,"STAGE":"Combined","CLINICAL.VARIABLES":"Pathological breast cancer subtypes: Estrogen receptor, progesterone receptor, histopathology(ductal, lobular, ductal vs. lobular), stage, grade","NOTES":"Stratified analysis from multiethnic cohort: European Americans, Latinas, Hawaiians, Japanese, African Americans | Allelic interaction analysis","Sensitivity":0.545454545454545,"Specificity":0.5,"A":2473,"B":8756,"C":2060,"D":8756,"Sensitivity":0.545454545454545,"Specificity":0.5,"A":2473,"B":8756,"C":2060,"D":8756},{"PUBMEDID":17529974,"LINK":"http://europepmc.org/abstract/MED/17529974","STUDY":"Common variants on chromosomes 2q35 and 16q12 confer susceptibility to estrogen receptor-positive breast cancer.","DISEASE.TRAIT":"Breast cancer","INITIAL.SAMPLE.DESCRIPTION":"1,599 European ancestry cases, 11,546 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"2,954 European ancestry cases, 5,967 European ancestry controls, Up to 561 Japanese ancestry cases, Up to 565 Japanese ancestry control, Up to 422 African American cases, Up to 448 African American controls, Up to 418 Hispanic cases, Up to 422 Hispanic controls, Up to 148 cases, Up to 293 controls","STRONGEST.SNP_RISK.ALLELE":"rs3803662-T","SNPS":"rs3803662","RISK.ALLELE.FREQUENCY":0.27,"P.VALUE":6e-19,"ORorBETA":1.28,"CASES":4554,"CONTROLS":17577,"STAGE":"Combined","CLINICAL.VARIABLES":"Pathological breast cancer subtypes: Estrogen receptor, progesterone receptor, histopathology(ductal, lobular, ductal vs. lobular), stage, grade","NOTES":"Stratified analysis from multiethnic cohort: European Americans, Latinas, Hawaiians, Japanese, African Americans | Allelic interaction analysis","Sensitivity":0.32130903681666,"Specificity":0.73,"A":1463,"B":4746,"C":3091,"D":12831,"Sensitivity":0.32130903681666,"Specificity":0.73,"A":1463,"B":4746,"C":3091,"D":12831},{"PUBMEDID":18326623,"LINK":"http://europepmc.org/abstract/MED/18326623","STUDY":"Genome-wide association study provides evidence for a breast cancer risk locus at 6q22.33.","DISEASE.TRAIT":"Breast cancer","INITIAL.SAMPLE.DESCRIPTION":"249 Ashkenazi Jewish ancestry non-BRCA1/2 carriers cases, 299 Ashkenazi Jewish ancestry non-BRCA1/2 carriers controls","REPLICATION.SAMPLE.DESCRIPTION":"1,193 Ashkenazi Jewish ancestry non-BRCA1/2 carriers  cases,1,166 Ashkenazi Jewish ancestry non-BRCA1/2 carriers controls","STRONGEST.SNP_RISK.ALLELE":"rs2180341-G","SNPS":"rs2180341","RISK.ALLELE.FREQUENCY":0.21,"P.VALUE":3e-08,"ORorBETA":1.41,"CASES":1442,"CONTROLS":1465,"STAGE":"1+2+3 | combined","CLINICAL.VARIABLES":"NA","NOTES":"NA","Sensitivity":0.272626829941994,"Specificity":0.79,"A":393,"B":308,"C":1049,"D":1157,"Sensitivity":0.272626829941994,"Specificity":0.79,"A":393,"B":308,"C":1049,"D":1157},{"PUBMEDID":19219042,"LINK":"http://europepmc.org/abstract/MED/19219042","STUDY":"Genome-wide association study identifies a new breast cancer susceptibility locus at 6q25.1.","DISEASE.TRAIT":"Breast cancer","INITIAL.SAMPLE.DESCRIPTION":"1,505 Chinese ancestry cases, 1,522 Chinese ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"5,026 Chinese ancestry cases, 2,476 Chinese ancestry controls, 1,591 European ancestry cases, 1,466 European ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs2046210-A","SNPS":"rs2046210","RISK.ALLELE.FREQUENCY":0.37,"P.VALUE":2e-15,"ORorBETA":1.29,"CASES":6472,"CONTROLS":3962,"STAGE":"1+2+3 | combined","CLINICAL.VARIABLES":"Age | Education | Age at menarche | Postmenopausal (%) | Age at menopause | Number of Live Births | Age at first live birth | Used HRT-Hormone replacement therapy (%) | Breast cancer family history | Prior BBD diagnosis| Body mass index | Waist-to-hip ratio","NOTES":"NA","Sensitivity":0.431048496342455,"Specificity":0.63,"A":2790,"B":1466,"C":3682,"D":2496,"Sensitivity":0.431048496342455,"Specificity":0.63,"A":2790,"B":1466,"C":3682,"D":2496},{"PUBMEDID":23143601,"LINK":"http://europepmc.org/abstract/MED/23143601","STUDY":"Genome-wide association analysis identifies new lung cancer susceptibility loci in never-smoking women in Asia.","DISEASE.TRAIT":"Lung cancer","INITIAL.SAMPLE.DESCRIPTION":"5,510 East Asian ancestry cases, 4,544 East Asian ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"1,099 East Asian ancestry cases, 2,913 East Asian ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs10197940-T","SNPS":"rs10197940","RISK.ALLELE.FREQUENCY":0.52,"P.VALUE":5e-06,"ORorBETA":1.12,"CASES":6538,"CONTROLS":7363,"STAGE":"1+2 | combined | scan + replication","CLINICAL.VARIABLES":"NA","NOTES":"flipped odd ratio | complementary RAF","Sensitivity":0.548192771084338,"Specificity":0.48,"A":3584,"B":3829,"C":2954,"D":3534,"Sensitivity":0.548192771084338,"Specificity":0.48,"A":3584,"B":3829,"C":2954,"D":3534},{"PUBMEDID":23143601,"LINK":"http://europepmc.org/abstract/MED/23143601","STUDY":"Genome-wide association analysis identifies new lung cancer susceptibility loci in never-smoking women in Asia.","DISEASE.TRAIT":"Lung cancer","INITIAL.SAMPLE.DESCRIPTION":"5,510 East Asian ancestry cases, 4,544 East Asian ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"1,099 East Asian ancestry cases, 2,913 East Asian ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs2395185-T","SNPS":"rs2395185","RISK.ALLELE.FREQUENCY":0.35,"P.VALUE":1e-08,"ORorBETA":1.17,"CASES":5504,"CONTROLS":4541,"STAGE":"1","CLINICAL.VARIABLES":"NA","NOTES":"Due to missing allele frequencies for combined stage, first stage was considered","Sensitivity":0.386503067484663,"Specificity":0.65,"A":2127,"B":1589,"C":3377,"D":2952,"Sensitivity":0.386503067484663,"Specificity":0.65,"A":2127,"B":1589,"C":3377,"D":2952},{"PUBMEDID":23143601,"LINK":"http://europepmc.org/abstract/MED/23143601","STUDY":"Genome-wide association analysis identifies new lung cancer susceptibility loci in never-smoking women in Asia.","DISEASE.TRAIT":"Lung cancer","INITIAL.SAMPLE.DESCRIPTION":"5,510 East Asian ancestry cases, 4,544 East Asian ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"1,099 East Asian ancestry cases, 2,913 East Asian ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs2736100-G","SNPS":"rs2736100","RISK.ALLELE.FREQUENCY":0.4,"P.VALUE":4e-27,"ORorBETA":1.38,"CASES":5505,"CONTROLS":4543,"STAGE":"1","CLINICAL.VARIABLES":"NA","NOTES":"The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)","Sensitivity":0.479166666666667,"Specificity":0.6,"A":2638,"B":1817,"C":2867,"D":2726,"Sensitivity":0.479166666666667,"Specificity":0.6,"A":2638,"B":1817,"C":2867,"D":2726},{"PUBMEDID":23143601,"LINK":"http://europepmc.org/abstract/MED/23143601","STUDY":"Genome-wide association analysis identifies new lung cancer susceptibility loci in never-smoking women in Asia.","DISEASE.TRAIT":"Lung cancer","INITIAL.SAMPLE.DESCRIPTION":"5,510 East Asian ancestry cases, 4,544 East Asian ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"1,099 East Asian ancestry cases, 2,913 East Asian ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs4488809-C","SNPS":"rs4488809","RISK.ALLELE.FREQUENCY":0.42,"P.VALUE":4e-09,"ORorBETA":1.19,"CASES":5450,"CONTROLS":4493,"STAGE":"1","CLINICAL.VARIABLES":"NA","NOTES":"The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)","Sensitivity":0.462863493239489,"Specificity":0.58,"A":2523,"B":1887,"C":2927,"D":2606,"Sensitivity":0.462863493239489,"Specificity":0.58,"A":2523,"B":1887,"C":2927,"D":2606},{"PUBMEDID":23143601,"LINK":"http://europepmc.org/abstract/MED/23143601","STUDY":"Genome-wide association analysis identifies new lung cancer susceptibility loci in never-smoking women in Asia.","DISEASE.TRAIT":"Lung cancer","INITIAL.SAMPLE.DESCRIPTION":"5,510 East Asian ancestry cases, 4,544 East Asian ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"1,099 East Asian ancestry cases, 2,913 East Asian ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs7086803-A","SNPS":"rs7086803","RISK.ALLELE.FREQUENCY":0.27,"P.VALUE":4e-18,"ORorBETA":1.28,"CASES":5457,"CONTROLS":4492,"STAGE":"1+2 | combined","CLINICAL.VARIABLES":"NA","NOTES":"The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)","Sensitivity":0.321309036816661,"Specificity":0.73,"A":1753,"B":1213,"C":3704,"D":3279,"Sensitivity":0.321309036816661,"Specificity":0.73,"A":1753,"B":1213,"C":3704,"D":3279},{"PUBMEDID":23143601,"LINK":"http://europepmc.org/abstract/MED/23143601","STUDY":"Genome-wide association analysis identifies new lung cancer susceptibility loci in never-smoking women in Asia.","DISEASE.TRAIT":"Lung cancer","INITIAL.SAMPLE.DESCRIPTION":"5,510 East Asian ancestry cases, 4,544 East Asian ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"1,099 East Asian ancestry cases, 2,913 East Asian ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs7216064-A","SNPS":"rs7216064","RISK.ALLELE.FREQUENCY":0.63,"P.VALUE":7e-06,"ORorBETA":1.16,"CASES":4066,"CONTROLS":4422,"STAGE":"1","CLINICAL.VARIABLES":"NA","NOTES":"flipped odd ratio | complementary RAF | The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis) | adenocarcinoma cancer cases only","Sensitivity":0.663880813953488,"Specificity":0.37,"A":2699,"B":2786,"C":1367,"D":1636,"Sensitivity":0.663880813953488,"Specificity":0.37,"A":2699,"B":2786,"C":1367,"D":1636},{"PUBMEDID":23143601,"LINK":"http://europepmc.org/abstract/MED/23143601","STUDY":"Genome-wide association analysis identifies new lung cancer susceptibility loci in never-smoking women in Asia.","DISEASE.TRAIT":"Lung cancer","INITIAL.SAMPLE.DESCRIPTION":"5,510 East Asian ancestry cases, 4,544 East Asian ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"1,099 East Asian ancestry cases, 2,913 East Asian ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs9387478-C","SNPS":"rs9387478","RISK.ALLELE.FREQUENCY":0.5,"P.VALUE":4e-10,"ORorBETA":1.18,"CASES":6601,"CONTROLS":7433,"STAGE":"1+2 | combined","CLINICAL.VARIABLES":"NA","NOTES":"flipped odd ratio | The primary analysis was performed using logistic regression for genotype trend effect (with 1 degree of freedom) adjusted for study center, age and three eigenvectors (on the basis of principal-components analysis)","Sensitivity":0.541284403669725,"Specificity":0.5,"A":3573,"B":3716,"C":3028,"D":3716,"Sensitivity":0.541284403669725,"Specificity":0.5,"A":3573,"B":3716,"C":3028,"D":3716},{"PUBMEDID":20673876,"LINK":"http://europepmc.org/abstract/MED/20673876","STUDY":"Genome-wide association-, replication-, and neuroimaging study implicates HOMER1 in the etiology of major depression.","DISEASE.TRAIT":"Major depressive disorder","INITIAL.SAMPLE.DESCRIPTION":"597 European ancestry cases, 1,295 European ancestry controls","REPLICATION.SAMPLE.DESCRIPTION":"409 European ancestry cases, 541 European ancestry controls","STRONGEST.SNP_RISK.ALLELE":"rs10520045-T","SNPS":"rs10520045","RISK.ALLELE.FREQUENCY":0.27,"P.VALUE":7e-06,"ORorBETA":1.32,"CASES":1006,"CONTROLS":1836,"STAGE":"1 + 2 | combined | study + replication","CLINICAL.VARIABLES":"Working memory task | Implicit emotion recognition task | Reward anticipation task | Functional magnetic resonance imaging (fMRI)","NOTES":"Sum of study cohort and replication individuals to get sample sizes for controls and cases","Sensitivity":0.328055964653903,"Specificity":0.73,"A":330,"B":496,"C":676,"D":1340,"Sensitivity":0.328055964653903,"Specificity":0.73,"A":330,"B":496,"C":676,"D":1340}];
+  var svg = dimple.newSvg("#" + opts.id, opts.width, opts.height);
+
+  var myChart = new dimple.chart(svg, data);
+  if (opts.bounds) {
+    myChart.setBounds(opts.bounds.x, opts.bounds.y, opts.bounds.width, opts.bounds.height);//myChart.setBounds(80, 30, 480, 330);
+  }
+  //dimple allows use of custom CSS with noFormats
+  if(opts.noFormats) { myChart.noFormats = opts.noFormats; };
+  //for markimekko and addAxis also have third parameter measure
+  //so need to evaluate if measure provided
+  
+  //function to build axes
+  function buildAxis(position,layer){
+    var axis;
+    var axisopts;
+    if (!layer[position+"Axis"]){
+      axisopts = opts[position+"Axis"];
+    } else axisopts = layer[position+"Axis"];
+    
+    if(axisopts.measure) {
+      axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
+    } else {
+      axis = myChart[axisopts.type](position, layer[position]);
+    };
+    if(!(axisopts.type === "addPctAxis")) axis.showPercent = axisopts.showPercent;
+    if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
+    if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
+    if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
+    if (axisopts.overrideMax) axis.overrideMax = axisopts.overrideMax;
+    if (axisopts.inputFormat) axis.dateParseFormat = axisopts.inputFormat;
+    if (axisopts.outputFormat) axis.tickFormat = axisopts.outputFormat;    
+    return axis;
+  };
+  
+  var c = null;
+  if(d3.keys(opts.colorAxis).length > 0) {
+    c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
+  }
+  
+  //allow manipulation of default colors to use with dimple
+  if(opts.defaultColors.length) {
+    opts.defaultColors = opts.defaultColors[0];
+    if (typeof(opts.defaultColors) == "function") {
+      //assume this is a d3 scale
+      //for now loop through first 20 but need a better way to handle
+      defaultColorsArray = [];
+      for (var n=0;n<20;n++) {
+        defaultColorsArray.push(opts.defaultColors(n));
+      };
+      opts.defaultColors = defaultColorsArray;
+    }
+    opts.defaultColors.forEach(function(d,i) {
+      opts.defaultColors[i] = new dimple.color(d);
+    })
+    myChart.defaultColors = opts.defaultColors;
+  }  
+  
+  //do series
+  //set up a function since same for each
+  //as of now we have x,y,groups,data,type in opts for primary layer
+  //and other layers reside in opts.layers
+  function buildSeries(layer, hidden){
+    //inherit from primary layer if not intentionally changed or xAxis, yAxis, zAxis null
+    if (!layer.xAxis) layer.xAxis = opts.xAxis;    
+    if (!layer.yAxis) layer.yAxis = opts.yAxis;
+    if (!layer.zAxis) layer.zAxis = opts.zAxis;
+    
+    var x = buildAxis("x", layer);
+    x.hidden = hidden;
+    
+    var y = buildAxis("y", layer);
+    y.hidden = hidden;
+    
+    //z for bubbles
+    var z = null;
+    if (!(typeof(layer.zAxis) === 'undefined') && layer.zAxis.type){
+      z = buildAxis("z", layer);
+    };
+    
+    //here think I need to evaluate group and if missing do null
+    //as the group argument
+    //if provided need to use groups from layer
+    var s = new dimple.series(myChart, null, x, y, z, c, null, dimple.plot[layer.type], dimple.aggregateMethod.avg, dimple.plot[layer.type].stacked);
+    
+    //as of v1.1.4 dimple can use different dataset for each series
+    if(layer.data){
+      //convert to an array of objects
+      //avoid lodash for now
+      datakeys = d3.keys(layer.data)
+      layer.dataarray = layer.data[datakeys[1]].map(function(d,i){
+        var tempobj = {}
+        datakeys.forEach(function(key){
+          tempobj[key] = layer.data[key][i]
+        })
+        return tempobj
+      })
+      s.data = layer.dataarray;
+    }
+    
+    //for measure axis dimple sorts at the series level not at axis level
+    ['x','y'].map(function(ax){
+      if( layer[ax + 'Axis'].type=="addMeasureAxis" && layer[ax + 'Axis'].orderRule ){
+        if( typeof layer[ax + 'Axis'].orderRule == "string" ){
+          s.addOrderRule( layer[ax + 'Axis'].orderRule );
+        } else if ( typeof layer[ax + 'Axis'].orderRule == "object" ) {
+          s._orderRules = layer[ax + 'Axis'].orderRule;
+        }
+      }
+    })
+    
+    if(layer.hasOwnProperty("groups")) {
+      s.categoryFields = (typeof layer.groups === "object") ? layer.groups : [layer.groups];
+      //series offers an aggregate method that we will also need to check if available
+      //options available are avg, count, max, min, sum
+    }
+    if (!(typeof(layer.aggregate) === 'undefined')) {
+      s.aggregate = eval(layer.aggregate);
+    }
+    if (!(typeof(layer.lineWeight) === 'undefined')) {
+      s.lineWeight = layer.lineWeight;
+    }
+    if (!(typeof(layer.lineMarkers) === 'undefined')) {
+      s.lineMarkers = layer.lineMarkers;
+    }
+    if (!(typeof(layer.barGap) === 'undefined')) {
+      s.barGap = layer.barGap;
+    }    
+    if (!(typeof(layer.interpolation) === 'undefined')) {
+      s.interpolation = layer.interpolation;
+    } 
+    
+    myChart.series.push(s);
+    
+    /*placeholder fix domain of primary scale for new series data
+    //not working right now but something like this
+    //for now just use overrideMin and overrideMax from rCharts
+    for( var i = 0; i<2; i++) {
+      if (!myChart.axes[i].overrideMin) {
+        myChart.series[0]._axisBounds(i==0?"x":"y").min = myChart.series[0]._axisBounds(i==0?"x":"y").min < s._axisBounds(i==0?"x":"y").min ? myChart.series[0]._axisBounds(i==0?"x":"y").min : s._axisBounds(i==0?"x":"y").min;
+      }
+      if (!myChart.axes[i].overrideMax) {  
+        myChart.series[0]._axisBounds(i==0?"x":"y")._max = myChart.series[0]._axisBounds(i==0?"x":"y").max > s._axisBounds(i==0?"x":"y").max ? myChart.series[0]._axisBounds(i==0?"x":"y").max : s._axisBounds(i==0?"x":"y").max;
+      }
+      myChart.axes[i]._update();
+    }
+    */
+      
+    
+    return s;
+  };
+  
+  buildSeries(opts, false);
+  if (opts.layers.length > 0) {
+    opts.layers.forEach(function(layer){
+      buildSeries(layer, true);
+    })
+  }
+  //unsure if this is best but if legend is provided (not empty) then evaluate
+  if(d3.keys(opts.legend).length > 0) {
+    var l =myChart.addLegend();
+    d3.keys(opts.legend).forEach(function(d){
+      l[d] = opts.legend[d];
+    });
+  }
+  //quick way to get this going but need to make this cleaner
+  if(opts.storyboard) {
+    myChart.setStoryboard(opts.storyboard);
+  };
+  myChart.draw();
+
+</script>
+    
+    <script>
+    var line = d3.svg.line()
+      .x(function(d) { return myChart.axes[0]._draw.scale()(d.x); })
+      .y(function(d) { return myChart.axes[1]._draw.scale()(d.y); });
+    
+    d3.select("#chart1c143e20c364 svg g")
+      .append("path")
+      .datum([{x:myChart.axes[0]._min,y:0},{x:myChart.axes[0]._max,y:1}])
+      .attr("d",line)
+      .style("stroke", "red")
+      .style("stroke-width",0.5)
+      .style("stroke-dasharray", "2");
+    </script>
+        
+  </body>
+</html>
