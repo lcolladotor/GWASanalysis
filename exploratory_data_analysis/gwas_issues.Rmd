@@ -115,11 +115,17 @@ round(1/0.86, 2)
 
 It seems that __T__ is a protective allele since it is associated with a decreased risk for Alzheimer's disease.
 
-Since the catalog reports the allele frequency for the _risk allele_, the odd ratio is flipped to indicate that having __C__ is associated with and odd ratio = 1/0.86 = `r round(1/0.86, 2)` and a RAF equal to 1 - 0.4 = `r 1 - 0.4`.
+Since the catalog reports the allele frequency for the _risk allele_, the odd ratio is flipped to indicate that having __C__ is associated with and odd ratio = 1/0.86 = `r round(1/0.86, 2)` and a RAF equal to 1 - 0.4 = `r 1 - 0.4`. __Having a RAF equal to 0.6 in controls is not inconsistent. The GWAS catalog does not make difference between neutral and risk alleles. In this case the RAF is 0.6 which actually means that most of the control population do not have the protective allele and not necessarily are predisposed in a higher way to have Alzheimer’s disease__.
 
 ```{r echo=FALSE}
 kable(t(snp[,c("PUBMEDID", "STUDY", "STRONGEST.SNP_RISK.ALLELE","SNPS","ORorBETA", "RISK.ALLELE.FREQUENCY")]))
 ```
+
+|        |Cases |Controls |
+|:-------|:-----|:--------|
+|? (+)   |2526  |1415     |
+|? ( - ) |4709  |3139     |
+|Total   |3941  |7848     |
 
 ---
 
