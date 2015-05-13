@@ -11,7 +11,7 @@ columns <- c("PUBMEDID", "LINK", "STUDY", "DISEASE.TRAIT", "INITIAL.SAMPLE.DESCR
              "SNPS", "RISK.ALLELE.FREQUENCY", "P-VALUE", "ORorBETA")
 
 assoc <- read.table("phenotypes_to_study_w_required_data", sep = "\t", 
-                    col.names = columns, quote = "", comment.char = "")
+                    col.names = columns, quote = "", comment.char = "", stringsAsFactors = FALSE)
 assoc <- assoc[order(assoc$DISEASE.TRAIT),]
 rownames(assoc) <- paste(seq_len(nrow(assoc)), assoc$SNPS, sep = "_")
 assoc$CASES <- NA
@@ -50,7 +50,9 @@ SenSes <- function(studies){
 contingency_table <- function(snp){
     cont_table <-matrix(snp[c("A", "B","CASES", "C", "D", "CONTROLS")], 
                         nrow = 3, 
-                        dimnames = list(c("+", "-", "Total"), 
+                        dimnames = list(c(paste(unlist(strsplit(snp$STRONGEST.SNP_RISK.ALLELE, "-"))[2], "(+)"), 
+                                          paste(unlist(strsplit(snp$STRONGEST.SNP_RISK.ALLELE, "-"))[2], "( - )"), 
+                                          "Total"), 
                                         c("Cases", "Controls"))
                         )
     
